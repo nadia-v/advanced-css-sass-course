@@ -10,6 +10,14 @@
     visibility: hidden;
     transition: all .3s;
 
+    // If the browser supports the property, it will blur the background and make it light,
+    // If the browser does not support the property, it will keep the background dark
+    @supports (-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem)) {
+        -webkit-backdrop-filter: blur(1rem);
+        backdrop-filter: blur(1rem);
+        background-color: rgba($color-black, .3);
+    }
+
     &__content {
         @include absolute-center;
 
